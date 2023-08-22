@@ -5,18 +5,11 @@ using namespace std;
 
 int solution(string roman)
 {
+    cout << "Start: " << clock();
     int iRetVal = 0;
     int iSize = roman.size();
-
-    unordered_map<char, unsigned int> Lib;
+    unordered_map<char, unsigned int> Lib = { {'M', 1000}, {'D', 500}, {'C', 100}, {'L', 50}, {'X', 10}, {'V', 5}, {'I', 1} };
     unordered_map<char, unsigned int>* pLib = &Lib;
-    Lib['M'] = 1000;
-    Lib['D'] = 500;
-    Lib['C'] = 100;
-    Lib['L'] = 50;
-    Lib['X'] = 10;
-    Lib['V'] = 5;
-    Lib['I'] = 1;
 
     for (int i = 0; i < iSize; i++)
     {
@@ -31,5 +24,6 @@ int solution(string roman)
         else
             iRetVal += it1->second;
     }
+    cout << "End: " << clock();
     return iRetVal;
 }
